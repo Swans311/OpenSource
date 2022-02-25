@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Form</title>
+</head>
+<body style="width:1500px; background-color:ghostwhite; margin:auto">
+    <script>
+        var options = [3,4,5,10,20]
+        document.writeln("<h2 style='width:700px; margin:auto; height:50px;'><span style='color:red'>C</span><span style='color:blue'>o</span><span style='color:purple'>l</span><span style='color:green'>o</span><span style='color:orange'>r</span> <span style='text-decoration:underline; text-decoration-color:red'>Sel</span><span style='text-decoration:underline; text-decoration-color:purple'>ect<span style='text-decoration:underline; text-decoration-color:blue'>ion</span></h2>")
+        document.writeln("<form method='post' style='width:700px; margin:auto'>")
+        document.writeln("<label>Select Number: </label>")
+        document.writeln("<select name='number' id='numbers' >")
+        for(i=0; i<options.length; i++){
+            document.write("<option value="+options[i]+">"+options[i]+"</option>")
+        }
+        document.writeln("</select></form><br><br><br><br><br><button onclick=myFunction() style='margin-left:400px'>Submit Number choice</button>")
+                                                                        //right here ^^^ is where we should have the hbs function to build the table
+    </script>
+    
+</body>
+</html>
