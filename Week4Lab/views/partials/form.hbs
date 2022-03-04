@@ -1,0 +1,27 @@
+<h2 style='width:700px; margin:auto; height:50px;'><span style='color:red'>C</span><span style='color:blue'>o</span><span style='color:purple'>l</span><span style='color:green'>o</span><span style='color:orange'>r</span> <span style='text-decoration:underline; text-decoration-color:red'>Sel</span><span style='text-decoration:underline; text-decoration-color:purple'>ect<span style='text-decoration:underline; text-decoration-color:blue'>ion</span></h2>
+<form action="/makeTable" method='post' style='width:700px; margin:auto'>
+<label>Select Number: </label>
+<select name='number' id='numbers' >
+<script>
+    var options = [3,4,5,10,20]
+    for(i=0; i<options.length; i++){
+    document.write("<option value="+options[i]+">"+options[i]+"</option>")
+}
+</script>
+        <!--document.writeln("</select></form><br><br><br><br><br><button onclick= style='margin-left:400px'>Submit Number choice</button>")
+                                                                        //right here ^^^ is where we should have the hbs function to build the table
+    -->
+    </select>
+    <input type="submit" value="Submit">
+    </form>
+    <!--<button id="clickme"> Submit </button>
+<script>
+    var btn = document.getElementById("clickme");
+    var table=""
+    //var grid = document.getElementById(numbers).value
+    btn.addEventListener('click', ()=>{
+        table = {{buildTable 3 }};
+        document.writeln(table);
+        console.log("clicked")
+    });
+</script>-->
