@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Contacts</title>
+</head>
+<body>
+    <!--ENTER ALL JSON DATA HERE using fetch request-->
+
+    <h3 id="contactHead">Contact Info</h3>
+    <!--<input name="query">-->
+    <textarea name="results" readonly></textarea>
+
+
+    <script>
+
+        let makeCall = ()=>{
+            let results = document.getElementsByName("results");
+            let verb = "GET"
+            let url = `http://localhost:3000/api/v1/contacts/`
+
+            //document.querySelector('input[name="query"]').value = url
+
+            let myHeaders = new Headers()
+
+            myHeaders.set('Content-Type', 'application/json')
+
+
+            let myInit = {
+                method:verb,
+                headers:myHeaders,
+                mode:'cors',
+                cache:'default'
+            }
+
+            let myRequest = new Request(url, myInit)
+            console.log(url)
+            console.log(myInit)
+            
+            fetch(myRequest).then(response => {
+                let contentType = response.headers.get('content-type')
+                if(contentType && contentType.includes('application/json')){
+                    return response.text()
+                }
+
+                if(response.status === 204){
+                    return 'Delete'
+                }
+                throw new TypeError("This isn't JSON")
+
+            }).then(jsonText => {
+                results.value = jsonText
+            }).catch(err =>{
+                console.log(err)
+            })
+        }
+
+        window.onload=makeCall;
+
+    </script>
+</body>
+</html>
